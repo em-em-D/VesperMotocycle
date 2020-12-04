@@ -23,11 +23,11 @@ default: &default
 
 development:
   <<: *default
-  database: VesperMotocycle_development
+  database: motocycle
   host: localhost
-  port: 5432
-  username: Ves
-  password: King
+  port: 5433
+  username: moto
+  password: moto1
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
@@ -60,10 +60,10 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: VesperMotocycle_test
-  port: 5432
-  username: Ves
-  password: King
+  database: motocycle
+  port: 5433
+  username: moto
+  password: moto1
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
