@@ -1,4 +1,4 @@
-class MotocyclesController < ApplicationController
+class Api::V1::MotocyclesController < ApplicationController
   before_action :set_motocycle, only: [:show, :update, :destroy]
 
   # GET /motocycles
