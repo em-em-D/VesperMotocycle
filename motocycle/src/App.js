@@ -1,24 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import Tweenful, { elastic } from '../node_modules/react-tweenful';
+import Observer from './Observer';
+import styled from 'styled-components';
+import ves from `./images/ves.jpg`;
+import Login from './login';
 
-function App() {
+const Side = styled.div`
+  float: left;
+`
+
+function App (){
+ 
+  const [shouldRender, setShouldRender] = useState(true);
+  useEffect(() => {
+    setTimeout(() => setShouldRender(false), 3000);
+  }, []);
+
+  const props = {
+    delay: 1000,
+    render: true,
+    duration: 1600,
+    easing: elastic(2, 0.1),
+    loop: false,
+    animate: { translateX: '400px' }
+  };
+
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Observer>
+      <Side>
+        <Tweenful.div {...props}>
+         <img src="ves.jpg"></img>
+        </Tweenful.div>
+      </Side>
+    </Observer>
+    <Login/>
+
   );
 }
 
